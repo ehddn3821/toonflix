@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:toonflix/screens/detail_screen.dart';
 
 class Webtoon extends StatelessWidget {
@@ -29,22 +30,25 @@ class Webtoon extends StatelessWidget {
       },
       child: Column(
         children: [
-          Container(
-            clipBehavior: Clip.hardEdge,
-            width: 250,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15),
-              boxShadow: [
-                BoxShadow(
-                  blurRadius: 15,
-                  offset: const Offset(10, 10),
-                  color: Colors.black.withOpacity(0.5),
-                ),
-              ],
-            ),
-            child: Image.network(
-              thumb,
-              headers: const {'Referer': 'https://comic.naver.com'},
+          Hero(
+            tag: id,
+            child: Container(
+              clipBehavior: Clip.hardEdge,
+              width: 250,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                boxShadow: [
+                  BoxShadow(
+                    blurRadius: 15,
+                    offset: const Offset(10, 10),
+                    color: Colors.black.withOpacity(0.5),
+                  ),
+                ],
+              ),
+              child: Image.network(
+                thumb,
+                headers: const {'Referer': 'https://comic.naver.com'},
+              ),
             ),
           ),
           const SizedBox(
